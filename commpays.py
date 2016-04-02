@@ -60,6 +60,7 @@ def calculate():
         pay_for_elty = under_100 + over_100
     pay_for_elty = round(pay_for_elty, 2)
     print '{0}: {1} {2}'.format(el_ty, pay_for_elty, 'UAH')
+    global summ
     summ = pay_for_gas + pay_for_water + pay_for_elty
     print '\nsum: ' + str(summ) + 'UAH'
     print '-' * 8 + '\n'
@@ -135,12 +136,11 @@ q - quit
                     diff = payday - today
                     if diff <= 0:
                         diff = 30 - today + payday
-                    print 'diff = ' + str(diff)
                     k = 30.0 / (30 - diff)
-                    print 'k = ' + str(k)
-                    print 'summ = ' + str(summ)
-                    pred = k * summ
-                    print 'prediction pay = ' + str(pred)
+                    pred = round(k * summ, 2)
+                    print '\n' + '-' * 8
+                    print '{0}: {1} {2}'.format('prediction pay', pred, 'UAH')
+                    print '-' * 8 + '\n'
                     break
                 else:
                   print 'invalid payday'
