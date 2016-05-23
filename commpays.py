@@ -130,8 +130,8 @@ q - quit
         # prediction
         if 'y' == input('wanna prediction? "y/n" '):
             while True:
-                payday = input('enter payday: ')
-                if 0 < int(payday) < 31:
+                payday = int(input('enter payday: '))
+                if 0 < payday < 31:
                     today = datetime.datetime.today().day
                     diff = payday - today
                     if diff <= 0:
